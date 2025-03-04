@@ -1,0 +1,17 @@
+services:
+  ngrok:
+    image: ngrok/ngrok:latest
+    container_name: ngrok-proxy
+    ports:
+      - 4040:4040
+#    network_mode: host
+    environment:
+      - NGROK_CONFIG=/etc/ngrok.yml
+    volumes:
+      - ./ngrok.yml:/etc/ngrok.yml
+    command: start --all  # 启动所有隧道
+
+# https://dashboard.ngrok.com/get-started/setup/docker
+# https://dashboard.ngrok.com/endpoints?sortBy=updatedAt&orderBy=desc
+
+# TODO NGINX 80端口 和 web ui 4040 端口桥接模式下不能同时开启，how to fix. 使用host模式，可以，但是不能端口转移

@@ -1,0 +1,19 @@
+version: "2"
+authtoken: 2rD8Os4FhQMoXtRPxnHRebfld1s_66fUCZh16crezZh4iE6AK
+
+web_addr: 0.0.0.0:11434
+
+tunnels:
+#  nginx:
+#    proto: http
+#    addr: 80
+  server80:
+    proto: http
+    addr: host.docker.internal:8080
+  ollama:
+    proto: http
+    addr: host.docker.internal:11434
+
+#  mysql:
+#    proto: tcp
+#    addr: 192.168.0.106:3306
